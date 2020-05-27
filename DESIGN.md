@@ -52,7 +52,7 @@ We anticipate the following modules or functions in the `Creator`:
  2. *sudoku_maker* which creates a data struct that holds an initialized 9x9 array which is the Sudoku Puzzle.
  3. *number_inserter* which goes through the puzzle and randomly picks a number to insert in a random location.
  4. *is_valid* which makes sure the insertion of a specific number in a row/block/column is valid.
- 5. *is_unique* which checks if there is a unique solution to the puzzle. 
+ 5. *is_unique* which checks if there is a unique solution to the puzzle.
  6. *sudoku_print* which prints the puzzle to stdin or any specified file.
 
 We anticipate the following modules or functions in the `Solver`:
@@ -77,11 +77,11 @@ The `Creator` will run as follows:
 2. Parse the command line, validate parameters, initialize other modules.
 3. Make a variable of the `Sudoku_t` that will contain an empty 9x9 array called Puzzle.
 4. Randomly go through the initial array and find a random spot.
-  5. Pick a random number to insert at that slot
+  5. Pick a number 0-9 to insert at that slot
   6. Make sure the random number is a valid insertion in that row/column/box
     7. If it is not pick repeat steps 5 and 6.
     8. If it is insert the number at the slot.
-    9. Remove this number from the known options of numbers to insert
+    9. Remove this number from the known options of numbers to insert.
     10. Repeat this process until there are no more numbers available to insert.
 11. Call the solver function on the program and receive a solved Puzzle.
   12. Remove one element from the puzzle.
@@ -118,7 +118,7 @@ For the creator, the following must be observed:
 2. The puzzle is, in fact, solvable
 3. The puzzle only has one solution
 
-For the solver, the following must be observed: 
+For the solver, the following must be observed:
 
 1. The proposed solution outputted by `./sudoku solve` is correct
 
