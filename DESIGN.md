@@ -44,7 +44,7 @@ Output of `Creator`: An initialized Sudoku Puzzle with a grid of 9x9 numbers var
 
 Output of `Solver`: A solved Sudoku Puzzle with a grid of 9x9 numbers varying from 1-9. This is either printed to stdout or to a file.
 
-### Functional decomposition into modules  GO OVER THIS WITH TEAM
+### Functional decomposition into modules
 
 We anticipate the following modules or functions in the `Creator`:
 
@@ -52,7 +52,7 @@ We anticipate the following modules or functions in the `Creator`:
  2. *sudoku_maker* which creates a data struct that holds an initialized 9x9 array which is the Sudoku Puzzle.
  3. *number_inserter* which goes through the puzzle and randomly picks a number to insert in a random location.
  4. *is_valid* which makes sure the insertion of a specific number in a row/block/column is valid.
- 5. *sudoku_solver* which will go through the loaded puzzle and insert the right number at the "holes" that are open. This on top of filling in the array will return a value of how many possible solutions they are. If this returns the number 1 we know there is only one unique solution.
+ 5. *is_unique* which checks if there is a unique solution to the puzzle. 
  6. *sudoku_print* which prints the puzzle to stdin or any specified file.
 
 We anticipate the following modules or functions in the `Solver`:
@@ -81,38 +81,16 @@ The `Creator` will run as follows:
   6. Make sure the random number is a valid insertion in that row/column/box
     7. If it is not pick repeat steps 5 and 6.
     8. If it is insert the number at the slot.
-  9. Repeat steps 6-9 until there are at least 17 numbers inserted (it's impossible to find a unique solution to a sudoku puzzle with less than 17 numbers inserted).
-10. Check if there is a unique solution.
-  11. If there is more than one solution repeat steps 4 through 8.
-  12. If there is no solutions undo the last insertion and repeat steps 4 through 8.
-  13. If there is a unique solution stop inserting numbers.
-14. Print this finished Puzzle to stdout or whatever file it is directed to.
+    9. Remove this number from the known options of numbers to insert
+    10. Repeat this process until there are no more numbers available to insert.
+11. Call the solver function on the program and receive a solved Puzzle.
+  12. Remove one element from the puzzle.
+  13. Check if there is a unique solution.
+    14. If there is stop inserting numbers.
+    15. If there is not, repeat steps 12 through 13.
+16. Print this finished Puzzle to stdout or whatever file it is directed to.
 
 The `Solver` will run as follows:  TALK TO LUC TOMORROW ABOUT HOW DAFUQ HE IS GONNA DO THIS SHIT
-
-1. Execute from a command line as shown in the User Interface.
-2. Parse the command line, validate parameters, initialize other modules.
-3. Make a variable of the `Sudoku_t` that will contain an empty 9x9 array called Puzzle.
-4. From the provided file, load the array in the file into the Puzzle.
-5. Go through the array until you find a hole.
-  6. Insert a valid number at this hole.
-
-
-
-
-**normalize the URL** means to convert it into a clean, canonical form.
-
-**internal** means the URL stays within the CS50 playground http://old-www.cs.dartmouth.edu/.
-
-A good implementation will not necessarily encode all the above code in a single, deeply-nested function; part of the Implementation Spec is to break the pseudocode down into a cleanly arranged set of functions.
-
-Notice that our pseudocode says nothing about the order in which it crawls webpages; since it presumably pulls them out of a *bag*, and a *bag* abstract data structure explicitly denies any promise about the order of items removed from a bag, we can't expect any particular crawl order.
-That's ok.
-The result may or may not be a Breadth-First Search, but for the crawler we don't care about the order as long as we explore everything within the `maxDepth` neighborhood.
-
-The crawler completes and exits when it has nothing left in its bag - no more pages to be crawled.
-The maxDepth parameter indirectly determines the number of pages that the crawler will retrieve.
-
 
 ### Dataflow through modules
 
