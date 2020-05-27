@@ -5,19 +5,26 @@
  */
 
 #include "creator.h"
-int rand_num (void){
-  time_t t;
 
+void gen_init(void){
+  time_t t;
   // Intializes random number generator
   srand((unsigned) time(&t));
+}
 
-  // Gets initial random number than calls a modulus of 10
-  // on this random to number to make sure the number is between 0-9
-  return (int) (rand()%9); // returns random number of 0-9
+int rand_num (void){
+  long x;
+  int y;
+
+  x = rand() % 9;  // Creates random number and modulus it by 9
+  y = (int) x;  // Giving us a long value 0 - 8 then casts it as an int
+
+  return y; // returns random number of 0-9
 }
 
 sudoku_t *creator(void){  // Creates Sudoku puzzle with one unique solution
   sudoku_t *game = game_init();  // Makes game with random starting blocks
+  gen_init();  // Initializes random number generator
 
   if (game == NULL){  // If error upon creation of game just leaves creator
     return NULL;

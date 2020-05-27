@@ -23,6 +23,13 @@
 *   int with random value */
 int rand_num (void); // Gets a random number 1 through 10
 
+/******************rand_num********************
+* Initializes random number generator based off a seed of the time
+*
+* Returns:
+*   void */
+void gen_init(void);
+
 /******************game_init********************
 * Creates a Sudoku game with 9 random blocks filled in
 *
