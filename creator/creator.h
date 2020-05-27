@@ -23,7 +23,7 @@
 *   int with random value */
 int rand_num (void); // Gets a random number 1 through 10
 
-/******************rand_num********************
+/******************gen_init********************
 * Initializes random number generator based off a seed of the time
 *
 * Returns:
