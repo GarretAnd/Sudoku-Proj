@@ -24,6 +24,12 @@
 
 `solve_puzzle`
 
+1. Find an unsolved element of the puzzle using `get_unsolved_element`
+2. Attempt to place a number in this slot (starting at 1, increasing upwards)
+	3. Check if the number is valid. If not, increment the number by 1
+	4. If it is, valid, recursively call `solve_puzzle` to see if the puzzle is solved
+	5. Return false if the puzzle cannot be solved.
+6. If the puzzle is solved, return true.
 
 ## Major Data Structures
 
