@@ -50,15 +50,6 @@ Output of `Solver`: A solved Sudoku Puzzle with a grid of 9x9 numbers varying fr
 
 ### Functional decomposition into modules
 
-We anticipate the following modules or functions in the `common` directory to be shared by the `Solver` and `Creator`:
-
-1. *sudoku_new* which creates a data structure that holds a 9x9 two-dimensional array
-2. *sudoku_edit* which changes the value at a desired position
-3. *sudoku_get* which returns the value at a certain position
-4. *sudoku_print* which prints the puzzle to `stdout`
-5. *sudoku_delete* which frees the memory of a puzzle
-6. *sudoku_isvalid* which checks if a row, column, and box are valid
-
 We anticipate the following modules or functions in the `Creator`:
 
  1. *main*, which parses arguments and initializes other modules.
@@ -73,12 +64,15 @@ We anticipate the following modules or functions in the `Solver`:
  3. *sudoku_solver* which will go through the loaded puzzle and insert the right number at the "holes" that are open.
  4. *is_valid* which makes sure the insertion of a specific number in a row/block/column is valid.
  5. *game_won* which will check if there is a non-zero number at every spot in the array and tells us whether the game is over or not.
- 5. *sudoku_print* which prints the puzzle to stdin or any specified file.
 
-And some helper modules that provide data structures:
+We anticipate the following modules or functions in the `common` directory to be shared by the `Solver` and `Creator`:
 
- 1. *Sudoku* a struct that holds a 9x9 multidimensional array which is our puzzle
- 2. *set* which will hold the values in the row/column/box for validation.
+1. *sudoku_new* which creates a data structure that holds a 9x9 two-dimensional array
+2. *sudoku_edit* which changes the value at a desired position
+3. *sudoku_get* which returns the value at a certain position
+4. *sudoku_print* which prints the puzzle to `stdout`
+5. *sudoku_delete* which frees the memory of a puzzle
+6. *sudoku_isvalid* which checks if a row, column, and box are valid
 
 ### Pseudo code for logic/algorithmic flow
 
