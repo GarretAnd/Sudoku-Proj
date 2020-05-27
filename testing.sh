@@ -40,7 +40,8 @@ do
 	then # print the differences and exit
 		echo Differences exist.
 	else # otherwise exit 0
-		echo No differences exist.
+		echo No differences exist! breaking out...
+		break
 	fi
 	echo Solved Puzzle 1:
 	./sudoku solve < testfile1

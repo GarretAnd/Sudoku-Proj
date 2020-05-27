@@ -24,3 +24,6 @@ clean:
 	rm -rf *.o
 	rm -rf sudoku
 	rm -rf core
+	rm -rf testfile
+	rm -rf testfile1
+	rm -rf testfile2
