@@ -87,8 +87,12 @@ int main()
 	} else {
 		fprintf(stdout, "Failed isvalid check\n");
 	}
+	
+	fprintf(stdout, "Testing copy:\n");
+	sudoku_t *copy = sudoku_copy(sudoku);
+	sudoku_print(copy);
 
-	fprintf(stdout, "Deleting sudoku\n");
+	fprintf(stdout, "\nDeleting sudoku\n");
 
 	return 0;
 }

@@ -67,10 +67,20 @@ void sudoku_print(sudoku_t *sudoku)
 }
 
 sudoku_t *sudoku_copy(sudoku_t *sudoku){
+	if (sudoku == NULL){
+		fprintf(stderr, "Error: could not access sudoku\n");
+		return NULL;
+	}
+	
 	sudoku_t *copy = sudoku_new();
-	for(int i = 0; i < 9; i++){
-		for(int j = 0; j < 9; j++){
-			copy->grid[i][j] = sudoku->grid[i][j];
+	if (copy == NULL){ // check if memory was allocated
+		fprintf(stderr, "Error: could not allocate memory for copy\n");
+		return NULL;
+	}
+
+	for(int i = 0; i < 9; i++){ // iterate through rows
+		for(int j = 0; j < 9; j++){ // iterate through columns
+			copy->grid[i][j] = sudoku->grid[i][j]; // copy values
 		}
 	}
 	return copy;

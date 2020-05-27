@@ -45,6 +45,14 @@ int sudoku_get(sudoku_t *sudoku, int i, int j);
  */
 void sudoku_print(sudoku_t *sudoku);
 
+/******************sudoku_copy*******************
+ * Provides a copy of the given sudoku
+ * Returns:
+ * 	NULL if sudoku is NULL
+ * 	A copy of the sudoku otherwise
+ */
+sudoku_t *sudoku_copy(sudoku_t *sudoku);
+
 /******************sudoku_delete*****************
  * Frees the memory occupied by the sudoku
  * Does nothing if sudoku is NULL
@@ -86,6 +94,3 @@ bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j);
  * 	true if no duplicate numbers
  */
 bool sudoku_isvalid(sudoku_t *sudoku, int i, int j);
-
-
-sudoku_t *sudoku_copy(sudoku_t *sudoku);
