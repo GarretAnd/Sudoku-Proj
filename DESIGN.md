@@ -26,19 +26,23 @@ Let's look through each.
 
 ### User interface
 
-The ***Sudoku Project*** only interface with the user is on the command-line.
+The ***Sudoku Project*** reads from only the command line when in *create* mode, and reads from `stdin` to access the puzzle when in *solve* mode.
+
+Create can be accessed as follows:
 
 ```
 ./sudoku create
 ```
 
+Solve can be accessed as follows:
+
 ```
-./sudoku solver
+./sudoku solve 
 ```
 
 ### Inputs and outputs
 
-Inputs: the only inputs are command-line parameters; see the User Interface above.
+Inputs: a command line argument dictating *create* or *solve* will determine if input is needed from `stdin`; see the User Interface above.
 
 Output of `Creator`: An initialized Sudoku Puzzle with a grid of 9x9 numbers varying from 0-9 where 0 represents the holes randomly scattered around the array with at least 40 holes in the array. This is either printed to stdout or to a file.
 
@@ -46,14 +50,21 @@ Output of `Solver`: A solved Sudoku Puzzle with a grid of 9x9 numbers varying fr
 
 ### Functional decomposition into modules
 
+We anticipate the following modules or functions in the `common` directory to be shared by the `Solver` and `Creator`:
+
+1. *sudoku_new* which creates a data structure that holds a 9x9 two-dimensional array
+2. *sudoku_edit* which changes the value at a desired position
+3. *sudoku_get* which returns the value at a certain position
+4. *sudoku_print* which prints the puzzle to `stdout`
+5. *sudoku_delete* which frees the memory of a puzzle
+6. *sudoku_isvalid* which checks if a row, column, and box are valid
+
 We anticipate the following modules or functions in the `Creator`:
 
  1. *main*, which parses arguments and initializes other modules.
- 2. *sudoku_maker* which creates a data struct that holds an initialized 9x9 array which is the Sudoku Puzzle.
- 3. *number_inserter* which goes through the puzzle and randomly picks a number to insert in a random location.
- 4. *is_valid* which makes sure the insertion of a specific number in a row/block/column is valid.
- 5. *is_unique* which checks if there is a unique solution to the puzzle. 
- 6. *sudoku_print* which prints the puzzle to stdin or any specified file.
+ 2. *number_inserter* which goes through the puzzle and randomly picks a number to insert in a random location.
+ 3. *is_valid* which makes sure the insertion of a specific number in a row/block/column is valid.
+ 4. *is_unique* which checks if there is a unique solution to the puzzle. 
 
 We anticipate the following modules or functions in the `Solver`:
 
@@ -94,11 +105,10 @@ The `Solver` will run as follows:  TALK TO LUC TOMORROW ABOUT HOW DAFUQ HE IS GO
 
 ### Dataflow through modules
 
- 1. *main* parses parameters and passes them to the crawler.
- 2. *crawler* uses a bag to track pages to explore, and hashtable to track pages seen; when it explores a page it gives the page URL to the pagefetcher, then the result to pagesaver, then to the pagescanner.
- 3. *pagefetcher* fetches the contents (HTML) for a page from a URL and returns.
- 4. *pagesaver* outputs a page to the appropriate file.
- 4. *pagescanner* extracts URLs from a page and returns one at a time.
+ 1. *main* parses parameters and passes them to the creator.
+ 2. *creator* uses a `sudoku_t` structure to build, populate, and print a randomly generated puzzle.
+ 3. *libsudoku* does the building, editing, printing, deleting, and checking of sudoku puzzles.
+ 4. *solver* takes a sudoku puzzle as input, parses it into a `sudoku_t` structure, and solves it using edits, gets, and checks.
 
 ### Major Data Structures
 
@@ -126,3 +136,9 @@ In addition, the following tests will be performed:
 
 1. Provide a variety of incorrect command-line arguments to ensure proper parsing
 2. Pass invalid puzzles to solver to ensure it imports puzzles properly
+
+*Fuzz testing*. Fuzz testing will be performed in a separate .c file, `fuzzsudoku.c`. It will do the following:
+
+1. Generate a variety (100) of random puzzles by calling `./sudoku create`
+2. Attempt to solve these puzzles by calling `./sudoku solve`
+3. If any puzzles are solved incorrectly, return an error
