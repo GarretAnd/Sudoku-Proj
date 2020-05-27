@@ -35,14 +35,28 @@
 
 `sudoku`
 
+Houses a 9x9 grid, initialized to all zeroes. Sudoku has the following functionality:
+
+1. *sudoku_new*, which allocated memory and initializes an empty puzzle
+2. *sudoku_edit*, which changes the value at a specified position
+3. *sudoku_get*, which returns the value at a specified position
+4. *sudoku_copy*, which duplicates a sudoku
+5. *sudoku_load*, which loads a `sudoku_t` structure from a file
+4. *sudoku_equal*, which checks is two puzzles match
+5. *sudoku_print*, which prints the puzzle to `stdout`
+6. *sudoku_delete*, which frees the memory that the sudoku occupies
+7. *sudoku_isvalid*, which checks if the row, column, and box of a certain position are valid
+
 ## Exits
 
 If `sudoku.c` fails, it will return with a nonzero exit code.
 
 `sudoku.c` will exit for the following reasons:
 
+1. Invalid number of command line arguments
+2. Invalid specification of mode (`create` or `solve`)
 
-All other errors occur within each query obtained from `stdin`, and so instead of exiting a new query is requested.
+Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved. 
 
 ## Memory Leaks
 
