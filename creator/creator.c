@@ -71,23 +71,29 @@ sudoku_t *game_init(void){
   int value;
   int i = 1; // Makes array of first round of numbers to insert
 
-  while (i < 10){  // Goes through whole array
+  while (i < 10){  // loop through nums 1-9
+    int j = 0;
+    while (j < 2){ 
+    	int x_coord = (int)rand_num();  // Initalizes random coordinate values
+	int y_coord = (int)rand_num();
 
-    int x_coord = (int)rand_num();  // Initalizes random coordinate values
-    int y_coord = (int)rand_num();
+   	 value = sudoku_get(game, x_coord, y_coord);  // Gets value at random tile
 
-    value = sudoku_get(game, x_coord, y_coord);  // Gets value at random tile
-
-    if (value == 0){ // If there is nothing at that tile
-      // Sets a random tile in the game with the values 1-9
-      sudoku_edit(game, x_coord, y_coord, i);
-    }  // Don't need to worry about valid insertion yet because no duplicate #s
-    else {
-      i--;  // Goes down a value to try again for the number it is on if needed
-    }
+   	 if (value == 0){ // If there is nothing at that tile
+     	 	// Sets a random tile in the game with the values 1-9
+     	 	sudoku_edit(game, x_coord, y_coord, i);
+		if (!sudoku_isvalid(game, x_coord, y_coord)){
+			j--;
+			sudoku_edit(game, x_coord, y_coord, 0);
+		}
+   	 }  // Don't need to worry about valid insertion yet because no duplicate #s
+   	 else {
+     		j--;  // Goes down a value to try again for the number it is on if needed
+   	 }
+	 j++;
+    }    
 
     i++;
   }
-
   return game;  // returns initalized random game
 }
