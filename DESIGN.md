@@ -3,7 +3,7 @@ layout: page
 title: Sudoku Final Project Design Spec
 ---
 
-There will be two major visible final products to the user in the ***Sudoku Project***
+There will be two major visible final products to the user in the ***Sudoku Project*** from `Sudoku.c`
 
 1. Creating (called `Creator`) a random Sudoku Puzzle with one unique solution upon calling the script.
 2. Solving (called `Solver`) this unique Sudoku Puzzle correctly.
@@ -26,16 +26,14 @@ Let's look through each.
 
 ### User interface
 
-The ***Sudoku Project*** only interface with the user is on the command-line; FILL THIS IN WITH VIDEO DATA
+The ***Sudoku Project*** only interface with the user is on the command-line.
 
 ```
-crawler seedURL pageDirectory maxDepth
+./sudoku create
 ```
 
-For example:
-
-``` bash
-$ crawler http://old-www.cs.dartmouth.edu/index.html ./data/ 2
+```
+./sudoku solver
 ```
 
 ### Inputs and outputs
@@ -44,7 +42,7 @@ Inputs: the only inputs are command-line parameters; see the User Interface abov
 
 Output of `Creator`: An initialized Sudoku Puzzle with a grid of 9x9 numbers varying from 0-9 where 0 represents the holes randomly scattered around the array with at least 40 holes in the array. This is either printed to stdout or to a file.
 
-Output of `Solver`: A solved Sudoku Puzzle with a grid of 9x9 numbers varying from 0-9 where 0 represents the "holes" randomly scattered around the array with at least 40 holes in the array. This is either printed to stdout or to a file.
+Output of `Solver`: A solved Sudoku Puzzle with a grid of 9x9 numbers varying from 1-9. This is either printed to stdout or to a file.
 
 ### Functional decomposition into modules  GO OVER THIS WITH TEAM
 
@@ -75,26 +73,25 @@ And some helper modules that provide data structures:
 
 The `Creator` will run as follows:
 
-1. execute from a command line as shown in the User Interface.
-2. parse the command line, validate parameters, initialize other modules.
+1. Execute from a command line as shown in the User Interface.
+2. Parse the command line, validate parameters, initialize other modules.
 3. Make a variable of the `Sudoku_t` that will contain an empty 9x9 array called Puzzle.
-4. Go through the array and initially put "holes" (0s) in all slots of the Puzzle.
-5. Randomly go through the initial array and find a random spot.
-  6. Pick a random number to insert at that slot
-  7. Make sure the random number is a valid insertion in that row/column/box
-    8. If it is not pick repeat steps 6 and 7.
-    9. If it is insert the number at the slot.
-  10. Repeat steps 7-10 until there are at least 17 numbers inserted (it's impossible to find a unique solution to a sudoku puzzle with less than 17 numbers inserted).
-11. Check if there is a unique solution.
-  12. If there is more than one solution repeat steps 5 through 9.
-  13. If there is no solutions undo the last insertion and repeat steps 5 through 9.
-  14. If there is a unique solution stop inserting numbers.
-15. Print this finished Puzzle to stdout or whatever file it is directed to.
+4. Randomly go through the initial array and find a random spot.
+  5. Pick a random number to insert at that slot
+  6. Make sure the random number is a valid insertion in that row/column/box
+    7. If it is not pick repeat steps 5 and 6.
+    8. If it is insert the number at the slot.
+  9. Repeat steps 6-9 until there are at least 17 numbers inserted (it's impossible to find a unique solution to a sudoku puzzle with less than 17 numbers inserted).
+10. Check if there is a unique solution.
+  11. If there is more than one solution repeat steps 4 through 8.
+  12. If there is no solutions undo the last insertion and repeat steps 4 through 8.
+  13. If there is a unique solution stop inserting numbers.
+14. Print this finished Puzzle to stdout or whatever file it is directed to.
 
 The `Solver` will run as follows:  TALK TO LUC TOMORROW ABOUT HOW DAFUQ HE IS GONNA DO THIS SHIT
 
-1. execute from a command line as shown in the User Interface.
-2. parse the command line, validate parameters, initialize other modules.
+1. Execute from a command line as shown in the User Interface.
+2. Parse the command line, validate parameters, initialize other modules.
 3. Make a variable of the `Sudoku_t` that will contain an empty 9x9 array called Puzzle.
 4. From the provided file, load the array in the file into the Puzzle.
 5. Go through the array until you find a hole.
