@@ -19,7 +19,6 @@ bool solve_puzzle(sudoku_t *sudoku){
 }
 
 bool solve_puzzle_random(sudoku_t *sudoku){
-	//gen_init();
 	int row = -1;
         int col = -1;
         get_unsolved_element(sudoku, &row, &col);
@@ -27,9 +26,9 @@ bool solve_puzzle_random(sudoku_t *sudoku){
 	int i = rand_num()+1;
         for(int j = 0; j < 9; j++){
                 sudoku_edit(sudoku, row, col, i);
-                if(sudoku_isvalid(sudoku, row, col) && solve_puzzle(sudoku)) return true;
+                if(sudoku_isvalid(sudoku, row, col) && solve_puzzle_random(sudoku)) return true;
 		i++;
-		if(i == 10) i = 0;
+		if(i == 10) i = 1;
         }
         sudoku_edit(sudoku, row, col, 0);
         return false;
@@ -54,7 +53,7 @@ static bool solve_puzzle_backwards(sudoku_t *sudoku){
 
         for(int i = 9; i >= 1; i--){
                 sudoku_edit(sudoku, row, col, i);
-                if(sudoku_isvalid(sudoku, row, col) && solve_puzzle(sudoku)) return true;
+                if(sudoku_isvalid(sudoku, row, col) && solve_puzzle_backwards(sudoku)) return true;
         }
         sudoku_edit(sudoku, row, col, 0);
         return false;

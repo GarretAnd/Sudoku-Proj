@@ -16,11 +16,15 @@ CFLAGS = -Wall -pedantic -std=c11 -ggdb $(TESTING)
 CC = gcc
 MAKE = make
 
+all: libsudoku.o libsudokutest random.o
+
 $(PROG): $(OBJS)
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
 
-bagtest.o: libsudoku.h
-bag.o: libsudoku.h
+libsudoku.o: libsudoku.h libsudoku.c
+libsudokutest.o: libsudoku.h libsudokutest.c
+random.o: random.c random.h
+
 
 .PHONY: test clean
 
