@@ -8,19 +8,12 @@
 #include "random.h"
 
 sudoku_t *creator(void){  // Creates Sudoku puzzle with one unique solution
-  sudoku_t *game = game_init();  // Makes game with random starting blocks
   gen_init();  // Initializes random number generator
+  sudoku_t *game = game_init();  // Makes game with random starting blocks
 
   if (game == NULL){  // If error upon creation of game just leaves creator
     return NULL;
   }
-
-  bool solved = solve_puzzle(game);  // Solves the game
-  if (!solved){  // Checks to make sure the game was properly solved.
-    printf("Error. Game board not solved correctly... Leaving Solver.\n");
-    return NULL;
-  }
-
   make_unique(game);  // Makes the game have a unique solution
 
   return game; // Returns the finished game

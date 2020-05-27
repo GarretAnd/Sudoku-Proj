@@ -7,7 +7,7 @@ PROG = sudoku
 
 #rules
 
-$(PROG): $(PROG).c ./common/libsudoku.o ./creator/creator.o ./solver/solver.o
+$(PROG): $(PROG).c ./common/libsudoku.o ./common/random.o  ./creator/creator.o ./solver/solver.o
 	$(CC) $(CFLAGS) $^ -o $@
 
 
