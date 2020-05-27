@@ -5,9 +5,7 @@
  */
 
 #include "creator.h"
-
 int rand_num (void){
-  int x;
   time_t t;
 
   // Intializes random number generator
@@ -15,10 +13,7 @@ int rand_num (void){
 
   // Gets initial random number than calls a modulus of 10
   // on this random to number to make sure the number is between 0-9
-  x = (int) rand();
-  x = x % 9;
-
-  return x;  // returns random number of 0-9
+  return (int) (rand()%9); // returns random number of 0-9
 }
 
 sudoku_t *creator(void){  // Creates Sudoku puzzle with one unique solution
@@ -45,14 +40,13 @@ void make_unique(sudoku_t *game){
   int value;
 
   while (unique){  // While there is a unique solution
+	  printf("getting random num\n");
     int x_coord = rand_num();  // Initalizes random coordinate values
     int y_coord = rand_num();
-
+	printf("%d %d\n", x_coord, y_coord);
     value = sudoku_get(game, x_coord, y_coord);  // Gets value at edited space
     sudoku_edit(game, x_coord, y_coord, 0);  // 0s a random slot on the board
-
     unique = unique_solution(game);  // Checks if there is a unique solution
-
     if (!unique){   // When there isn't a unique solution
       sudoku_edit(game, x_coord, y_coord, value);
       // undo last edit to give it a unique solution back and stop editing
@@ -74,8 +68,8 @@ sudoku_t *game_init(void){
 
   while (i < 10){  // Goes through whole array
 
-    int x_coord = rand_num();  // Initalizes random coordinate values
-    int y_coord = rand_num();
+    int x_coord = (int)rand_num();  // Initalizes random coordinate values
+    int y_coord = (int)rand_num();
 
     value = sudoku_get(game, x_coord, y_coord);  // Gets value at random tile
 

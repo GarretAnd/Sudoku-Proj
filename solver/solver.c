@@ -5,7 +5,6 @@ static void get_unsolved_element(sudoku_t *sudoku, int *row, int *col);
 static bool solve_puzzle_backwards(sudoku_t *sudoku);
 
 bool solve_puzzle(sudoku_t *sudoku){
-	printf("HERE\n");
 	int row = -1;
 	int col = -1;
 	get_unsolved_element(sudoku, &row, &col);
@@ -27,7 +26,7 @@ bool unique_solution(sudoku_t *sudoku){
 	bool match = sudoku_equal(copy1, copy2);
 	sudoku_delete(copy1);
 	sudoku_delete(copy2);
-	return !match;
+	return match;
 }
 
 static bool solve_puzzle_backwards(sudoku_t *sudoku){
