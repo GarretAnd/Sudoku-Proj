@@ -13,6 +13,7 @@
 #include <stdbool.h>
 #include <time.h>
 #include "solver.h"
+#include "random.h"
 #include "libsudoku.h"  // Includes Needed Libraries
 
 /*******************functions**********************/

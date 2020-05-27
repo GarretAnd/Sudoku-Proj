@@ -5,7 +5,6 @@
  */
 
 #include "creator.h"
-#include "random.h"
 
 sudoku_t *creator(void){  // Creates Sudoku puzzle with one unique solution
   sudoku_t *game = game_init();  // Makes game with random starting blocks
