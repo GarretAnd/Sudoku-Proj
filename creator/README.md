@@ -17,6 +17,12 @@ The creator directory stores `creator.c`, which is responsible for building sudo
 
 `creator.c` is meant to be called by outside modules, and thus does not have an exectuable.
 
+`creator` has the following functionality:
+
+1. *game_init*, which creates a new sudoku puzzle with 9 spots randomly filled in
+2. *make_unique*, which takes a solved game and removes elements while ensuring there is still one unique solution
+3. *creator*, which combines the above two functions to create a new puzzle with one unique solution 
+
 ### Assumptions
 
 No assumptions were made beyond those that were clear from the spec.
