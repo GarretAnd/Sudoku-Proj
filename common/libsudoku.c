@@ -58,12 +58,30 @@ void sudoku_print(sudoku_t *sudoku)
 		fprintf(stderr, "Error: could not access sudoku\n");
 		return;
 	}
-	for (int i = 0; i < SIZE; i++){ // iterate through column
-		for (int j = 0; j < SIZE; j++){ // iterate through row
+	for (int i = 0; i < SIZE; i++){ // iterate through row
+		for (int j = 0; j < SIZE; j++){ // iterate through column
 			fprintf(stdout, "%d  ", sudoku->grid[i][j]);
 		}
 		fprintf(stdout, "\n");
 	}
+}
+
+sudoku_t *sudoku_load(File *fp){
+	if (fp == NULL) return NULL;
+	sudoku_t *sudoku = sudoku_new();
+	if (sudoku == NULL) return NULL;
+	int col = 0;
+	int row = 0;
+	int value;
+	while (fscanf(fp, "%d ", &value) != -1){
+		sudoku->grid[row][col] = value;
+		col++;
+		if (col >= 9){
+			col = 0;
+			row++;
+		}
+	}
+	return sudoku;
 }
 
 sudoku_t *sudoku_copy(sudoku_t *sudoku){

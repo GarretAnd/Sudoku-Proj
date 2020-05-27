@@ -23,7 +23,10 @@ bool unique_solution(sudoku_t *sudoku){
 	sudoku_t *copy2 = sudoku_copy(sudoku);
 	if (!solve_puzzle(copy1)) return false;
 	solve_puzzle_backwards(copy2);
-	return !sudoku_equal(copy1, copy2);
+	bool match = sudoku_equal(copy1, copy2);
+	sudoku_delete(copy1);
+	sudoku_delete(copy2);
+	return !match;
 }
 
 static bool solve_puzzle_backwards(sudoku_t *sudoku){
