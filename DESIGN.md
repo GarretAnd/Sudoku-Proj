@@ -53,9 +53,12 @@ We anticipate the following modules or functions in the `common` directory to be
 1. *sudoku_new* which creates a data structure that holds a 9x9 two-dimensional array
 2. *sudoku_edit* which changes the value at a desired position
 3. *sudoku_get* which returns the value at a certain position
-4. *sudoku_print* which prints the puzzle to `stdout`
-5. *sudoku_delete* which frees the memory of a puzzle
-6. *is_valid* which checks if a row, column, and box are valid
+4. *sudoku_copy* which duplicates a sudoku
+5. *sudoku_load* which loads a sudoku structure
+6. *sudoku_equal* which checks if two puzzles are the same
+7. *sudoku_print* which prints the puzzle to `stdout`
+8. *sudoku_delete* which frees the memory of a puzzle
+9. *is_valid* which checks if a row, column, and box are valid
 
 ### Pseudo code for logic/algorithmic flow
 
