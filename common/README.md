@@ -1,5 +1,5 @@
 # CS50 Final Project
-## CS50 Winter 2020
+## CS50 Spring 2020
 
 ### common
 

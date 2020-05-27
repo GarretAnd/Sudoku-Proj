@@ -37,7 +37,7 @@ Create can be accessed as follows:
 Solve can be accessed as follows:
 
 ```
-./sudoku solve 
+./sudoku solve
 ```
 
 ### Inputs and outputs
@@ -55,7 +55,7 @@ We anticipate the following modules or functions in the `Creator`:
  1. *main*, which parses arguments and initializes other modules.
  2. *number_inserter* which goes through the puzzle and randomly picks a number to insert in a random location.
  3. *is_valid* which makes sure the insertion of a specific number in a row/block/column is valid.
- 4. *is_unique* which checks if there is a unique solution to the puzzle. 
+ 4. *is_unique* which checks if there is a unique solution to the puzzle.
 
 We anticipate the following modules or functions in the `Solver`:
 
@@ -91,8 +91,8 @@ The `Creator` will run as follows:
 11. Call the solver function on the program and receive a solved Puzzle.
   12. Remove one element from the puzzle.
   13. Check if there is a unique solution.
-    14. If there is stop inserting numbers.
-    15. If there is not, repeat steps 12 through 13.
+    14. If there is, repeat steps 12 through 13.
+    15. If there is not, undo the last delete you made.
 16. Print this finished Puzzle to stdout or whatever file it is directed to.
 
 The `Solver` will run as follows:  TALK TO LUC TOMORROW ABOUT HOW DAFUQ HE IS GONNA DO THIS SHIT
@@ -122,7 +122,7 @@ For the creator, the following must be observed:
 2. The puzzle is, in fact, solvable
 3. The puzzle only has one solution
 
-For the solver, the following must be observed: 
+For the solver, the following must be observed:
 
 1. The proposed solution outputted by `./sudoku solve` is correct
 
