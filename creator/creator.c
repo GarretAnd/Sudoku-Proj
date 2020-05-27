@@ -47,10 +47,8 @@ void make_unique(sudoku_t *game){
   int value;
 
   while (unique){  // While there is a unique solution
-	  printf("getting random num\n");
     int x_coord = rand_num();  // Initalizes random coordinate values
     int y_coord = rand_num();
-	printf("%d %d\n", x_coord, y_coord);
     value = sudoku_get(game, x_coord, y_coord);  // Gets value at edited space
     sudoku_edit(game, x_coord, y_coord, 0);  // 0s a random slot on the board
     unique = unique_solution(game);  // Checks if there is a unique solution
