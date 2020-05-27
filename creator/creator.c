@@ -16,7 +16,7 @@ int rand_num (void){
   // Gets initial random number than calls a modulus of 10
   // on this random to number to make sure the number is between 0-9
   x = rand();
-  x = x % 10;
+  x = x % 9;
 
   return x;  // returns random number of 0-9
 }
