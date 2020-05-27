@@ -51,6 +51,6 @@ sudoku_t *game_init(void){
     printf("Error. Game board not created correctly... Leaving Solver.\n");
     return NULL;
   }
-  solve_puzzle_random(game);
+  solve_puzzle_random(game);  // Solves the game and removes random spots
   return game;
 }
