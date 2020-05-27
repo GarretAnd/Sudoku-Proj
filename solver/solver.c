@@ -19,7 +19,7 @@ bool solve_puzzle(sudoku_t *sudoku){
 }
 
 bool solve_puzzle_random(sudoku_t *sudoku){
-	gen_init();
+	//gen_init();
 	int row = -1;
         int col = -1;
         get_unsolved_element(sudoku, &row, &col);
