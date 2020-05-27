@@ -52,6 +52,8 @@ int main()
 		fprintf(stdout, "Failed isvalid check\n");
 	}
 
+	fprintf(stdout, "Testing the get function, value at 1,1: %d\n", sudoku_get(sudoku, 1, 1));
+
 	fprintf(stdout, "Creating invalid row/column/box:\n");
 	sudoku_edit(sudoku, 6, 6, 1);
 	sudoku_edit(sudoku, 6, 7, 2);

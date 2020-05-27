@@ -100,44 +100,29 @@ The `Solver` will run as follows:  TALK TO LUC TOMORROW ABOUT HOW DAFUQ HE IS GO
  4. *pagesaver* outputs a page to the appropriate file.
  4. *pagescanner* extracts URLs from a page and returns one at a time.
 
-### Major data structures
+### Major Data Structures
 
-Three helper modules provide data structures:
+The common directory provides the following data structure:
 
- 1. *bag* of page (URL, depth) structures
- 2. *set* of URLs (indirectly used by hashtable)
- 4. *hashtable* of URLs
+ 1. *sudoku* which houses a 9x9 two-dimensional integer array
 
-### Testing plan
+### Testing Plan
 
 *Unit testing*.  A small test program in `testing.sh` to test each module to make sure it does what it's supposed to do.
 
-*Integration testing*.  Assemble the crawler and test it as a whole using `testing.sh`.
-In each case, examine the output files carefully to be sure they have the contents of the correct page, with the correct URL, and the correct depth.
-Ensure that no pages are missing or duplicated.
-Print "progress" indicators from the crawler as it proceeds (e.g., print each URL explored, and each URL found in the pages it explores) so you can watch its progress as it runs.
+*Integration testing*.  Assemble the solver and creator and test them as a whole using `testing.sh`.
 
-0. Test the program with various forms of incorrect command-line arguments to ensure that its command-line parsing, and validation of those parameters, works correctly.
+For the creator, the following must be observed:
 
-0. Test the crawler with a `seedURL` that points to a non-existent server.
+1. A random puzzle is generated with each call of `./sudoku create`
+2. The puzzle is, in fact, solvable
+3. The puzzle only has one solution
 
-0. Test the crawler with a `seedURL` that points to a non-internal server.
+For the solver, the following must be observed: 
 
-0. Test the crawler with a `seedURL` that points to a valid server but non-existent page.
+1. The proposed solution outputted by `./sudoku solve` is correct
 
-1. Crawl a simple, closed set of cross-linked web pages to crawl.
-Ensure that some page(s) are mentioned multiple times within a page, and multiple times across the set of pages.
-Ensure there is a loop (a cycle in the graph of pages).
-In such a little site, you know exactly what set of pages should be crawled, at what depths, and you know where your program might trip up.
+In addition, the following tests will be performed:
 
-2. Point the crawler at a page in that site, and explore at depths 0, 1, 2, 3, 4, 5.
-Verify that the files created match expectations.
-
-2. Repeat with a different seed page in that same site.
-If the site is indeed a graph, with cycles, there should be several interesting starting points.
-
-3. Point the crawler at our Wikipedia playground.
-Explore at depths 0, 1, 2.
-(It takes a long time to run at depth 2 or higher!) Verify that the files created match expectations.
-
-5. When you are confident that your crawler runs well, test it on a part of our playground or with a greater depth - but be ready to kill it if it seems to be running amok.
+1. Provide a variety of incorrect command-line arguments to ensure proper parsing
+2. Pass invalid puzzles to solver to ensure it imports puzzles properly

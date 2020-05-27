@@ -33,13 +33,23 @@ sudoku_t *sudoku_new()
 	return sudoku;
 }
 
-void sudoku_edit(sudoku_t *sudoku, int i, int j, int value){
+void sudoku_edit(sudoku_t *sudoku, int i, int j, int value)
+{
 	if (sudoku == NULL || i < 0 || j < 0 || value < 1 || i > 8 || j > 8 || value > 9){
 		fprintf(stderr, "Error: could not edit sudoku\n");
 		return;
 	}
 
 	sudoku->grid[i][j] = value;
+}
+
+int sudoku_get(sudoku_t *sudoku, int i, int j)
+{
+	if (sudoku == NULL || i < 0 || j < 0 || i > 8 || j > 8){
+		fprintf(stderr, "Error: could not access requested value\n");
+		return -1;
+	}
+	return sudoku->grid[i][j];
 }
 
 void sudoku_print(sudoku_t *sudoku)

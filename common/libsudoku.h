@@ -31,6 +31,14 @@ sudoku_t *sudoku_new();
  */
 void sudoku_edit(sudoku_t *sudoku, int i, int j, int value);
 
+/******************sudoku_get********************
+ * Provides the value of the puzzle at i,j
+ * Returns:
+ * 	-1 if suduoku is NULL, i,j<0, or i,j>8
+ * 	The value at i,j otherwise
+ */
+int sudoku_get(sudoku_t *sudoku, int i, int j);
+
 /******************sudoku_print******************
  * Prints the sudoku grid, one row per line
  * Prints nothing if sudoku is NULL
