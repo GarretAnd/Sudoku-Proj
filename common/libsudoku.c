@@ -86,6 +86,16 @@ sudoku_t *sudoku_copy(sudoku_t *sudoku){
 	return copy;
 }
 
+bool sudoku_equal(sudoku_t *sudoku1, sudoku_t *sudoku2){
+	if (sudoku1 == NULL || sudoku2 == NULL) return false; //protect from null givens
+	for(int i = 0; i < 9; i++){ // iterate through rows
+                for(int j = 0; j < 9; j++){ // iterate through columns
+			if (sudoku1->grid[i][j] != sudoku2->grid[i][j]) return false; //elements aren't equal
+		}
+	}
+	return true;
+}
+
 void sudoku_delete(sudoku_t *sudoku)
 {
 	if (sudoku != NULL){

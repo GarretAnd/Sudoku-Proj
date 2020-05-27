@@ -53,6 +53,14 @@ void sudoku_print(sudoku_t *sudoku);
  */
 sudoku_t *sudoku_copy(sudoku_t *sudoku);
 
+/******************sudoku_equal*******************
+ * checks if the two given sudokus are the same
+ * Returns:
+ *      true if all elements in two sudokus match and sudokus aren't null
+ *      false otherwise
+ */
+bool sudoku_equal(sudoku_t *sudoku1, sudoku_t *sudoku2)
+
 /******************sudoku_delete*****************
  * Frees the memory occupied by the sudoku
  * Does nothing if sudoku is NULL

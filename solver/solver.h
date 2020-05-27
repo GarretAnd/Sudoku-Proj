@@ -4,4 +4,5 @@
 #include <stdbool.h>
 #include "libsudoku.h"
 bool solve_puzzle(sudoku_t *sudoku);
+bool unique_solution(sudoku_t *sudoku);
 #endif // __SOLVER_H
