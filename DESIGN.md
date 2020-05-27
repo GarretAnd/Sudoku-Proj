@@ -95,7 +95,12 @@ The `Creator` will run as follows:
     15. If there is not, undo the last delete you made.
 16. Print this finished Puzzle to stdout or whatever file it is directed to.
 
-The `Solver` will run as follows:  TALK TO LUC TOMORROW ABOUT HOW DAFUQ HE IS GONNA DO THIS SHIT
+The `Solver` will run as follows:
+1. Find first empty block, if no empty block return true as it is solved
+2. Assign a valid value to said block
+3. recurse to next nonempty block and repeat steps 1-5, if this finds a solution return true
+4. if recursion was not able to find a valid solution assign a different valid value to block
+5. if all valid values are used up and a solution was not found return false.
 
 ### Dataflow through modules
 
