@@ -1,4 +1,4 @@
-/* Author: Quinn Spraut
+/* Author: cs50maybemajors
  * Date: 5/26/2020
  * Purpose: CS50 Final Project solution
  * Tests the libsudoku functions
@@ -87,8 +87,20 @@ int main()
 	} else {
 		fprintf(stdout, "Failed isvalid check\n");
 	}
+	
+	fprintf(stdout, "Testing copy:\n");
+	sudoku_t *copy = sudoku_copy(sudoku);
+	sudoku_print(copy);
 
-	fprintf(stdout, "Deleting sudoku\n");
+	fprintf(stdout, "Testing equals:\n");
+
+	if (sudoku_equal(sudoku, copy)){
+		fprintf(stdout, "The sudoku equals its copy\n");
+	} else {
+		fprintf(stdout, "The sudoku does not equal its copy\n");
+	}
+
+	fprintf(stdout, "\nDeleting sudoku\n");
 
 	return 0;
 }
