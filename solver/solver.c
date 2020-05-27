@@ -1,5 +1,6 @@
 #include "solver.h"
 #include <stdlib.h>
+#include <time.h>
 
 static void get_unsolved_element(sudoku_t *sudoku, int *row, int *col);
 static bool solve_puzzle_backwards(sudoku_t *sudoku);
@@ -15,6 +16,25 @@ bool solve_puzzle(sudoku_t *sudoku){
 	}
 	sudoku_edit(sudoku, row, col, 0);
 	return false;
+}
+
+bool solve_puzzle_random(sudoku_t *sudoku){
+	time_t t;
+  	// Intializes random number generator
+  	srand((unsigned) time(&t));
+	int row = -1;
+        int col = -1;
+        get_unsolved_element(sudoku, &row, &col);
+        if(row == -1 && col == -1) return true;
+	int i = (int)rand()%9+1;
+        for(int j = 0; j < 9; j++){
+                sudoku_edit(sudoku, row, col, i);
+                if(sudoku_isvalid(sudoku, row, col) && solve_puzzle(sudoku)) return true;
+		i++;
+		if(i == 10) i = 0;
+        }
+        sudoku_edit(sudoku, row, col, 0);
+        return false;
 }
 
 bool unique_solution(sudoku_t *sudoku){

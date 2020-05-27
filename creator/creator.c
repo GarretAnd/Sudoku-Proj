@@ -66,59 +66,6 @@ sudoku_t *game_init(void){
     printf("Error. Game board not created correctly... Leaving Solver.\n");
     return NULL;
   }
-
-  int value;
-  int i = 1; // Makes array of first round of numbers to insert
-
-  while (i < 10){  // loop through nums 1-9 
-   // int x_coord = rand_num();  // Initalizes random coordinate values
-    int x_coord = 0;
-    int y_coord = rand_num();
-
-    value = sudoku_get(game, x_coord, y_coord);  // Gets value at random tile
-
-    if (value == 0){ // If there is nothing at that tile
-     	 // Sets a random tile in the game with the values 1-9
-     	 sudoku_edit(game, x_coord, y_coord, i);
-	if (!sudoku_isvalid(game, x_coord, y_coord)){
-		sudoku_edit(game, x_coord, y_coord, 0);
-		bool placed = false;
-		int j = 1;
-		sudoku_edit(game, x_coord, y_coord, i);
-		while(y_coord-j >= 0){
-			while(y_coord-j >= 0 && sudoku_get(game, x_coord, y_coord-j) != 0){
-				j++;
-			}
-			sudoku_edit(game, x_coord, y_coord-j, i);
-			if (sudoku_isvalid(game, x_coord, y_coord-j)){
-				placed = true;
-				break;
-			}else{
-				sudoku_edit(game, x_coord, y_coord-j, 0);
-			}
-			j++;
-		}
-		if (!placed){
-			j=1;
-			while(y_coord+j < 9){
-                        	while(y_coord+j < 9 && sudoku_get(game, x_coord, y_coord+j) != 0){
-                                	j++;
-                        	}
-                        	sudoku_edit(game, x_coord, y_coord+j, i);
-                       		if (sudoku_isvalid(game, x_coord, y_coord+j)){
-                                	break;
-                        	}else{
-                                	sudoku_edit(game, x_coord, y_coord+j, 0);
-                                	j++;
-                        	}
-                	}
-		}
-	}
-    }  // Don't need to worry about valid insertion yet because no duplicate #s
-    else {
-     	i--;  // Goes down a value to try again for the number it is on if needed
-    }    
-    i++;
-  }
-  return game;  // returns initalized random game
+  solve_puzzle_random(game);
+  return game;
 }

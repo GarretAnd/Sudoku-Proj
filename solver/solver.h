@@ -16,4 +16,6 @@ bool solve_puzzle(sudoku_t *sudoku);
  */
 bool unique_solution(sudoku_t *sudoku);
 
+bool solve_puzzle_random(sudoku_t *sudoku);
+
 #endif // __SOLVER_H
