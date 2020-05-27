@@ -1,8 +1,3 @@
----
-layout: page
-title: Sudoku Final Project Design Spec
----
-
 There will be two major visible final products to the user in the ***Sudoku Project*** from `Sudoku.c`
 
 1. Creating (called `Creator`) a random Sudoku Puzzle with one unique solution upon calling the script.
@@ -11,18 +6,6 @@ There will be two major visible final products to the user in the ***Sudoku Proj
 The `Creator` will first initialize a `Sudoku` structure (more details on this structure below and in IMPLEMENTATION.md) to then randomly fill in with various random numbers, while making sure that the numbers it puts into the puzzle are valid. At the end of this process the puzzle will have one unique solution.
 
 The `Solver` will read a `Sudoku` structure from a provided file and then go through the puzzle and solve it appropriately. It will go through each "hole" in the puzzle and based off the block it is in, the row, and the column that hole it is in it will determine the appropriate solution.
-
-A Design Spec should contain several sections:
-
-* User interface
-* Inputs and Outputs
-* Functional decomposition into modules
-* Pseudo code for logic/algorithmic flow
-* Dataflow through modules
-* Major data structures
-* Testing plan
-
-Let's look through each.
 
 ### User interface
 
@@ -72,7 +55,7 @@ We anticipate the following modules or functions in the `common` directory to be
 3. *sudoku_get* which returns the value at a certain position
 4. *sudoku_print* which prints the puzzle to `stdout`
 5. *sudoku_delete* which frees the memory of a puzzle
-6. *sudoku_isvalid* which checks if a row, column, and box are valid
+6. *is_valid* which checks if a row, column, and box are valid
 
 ### Pseudo code for logic/algorithmic flow
 
@@ -96,18 +79,20 @@ The `Creator` will run as follows:
 16. Print this finished Puzzle to stdout or whatever file it is directed to.
 
 The `Solver` will run as follows:
-1. Find first empty block, if no empty block return true as it is solved
-2. Assign a valid value to said block
-3. recurse to next nonempty block and repeat steps 1-5, if this finds a solution return true
-4. if recursion was not able to find a valid solution assign a different valid value to block
-5. if all valid values are used up and a solution was not found return false.
+1. Find an empty block on the game board.
+  2. If it can't find an empty block, the board is already finished.
+  3. If it can find an empty block, Assign a valid value to said block.
+    4. Recurse to next nonempty block and repeat steps 1-4.
+    5. If recursion is not able to find a valid solution assign a different valid value to block.
+      6. If all valid values are used up and a solution was not found.
 
 ### Dataflow through modules
 
  1. *main* parses parameters and passes them to the creator.
- 2. *creator* uses a `sudoku_t` structure to build, populate, and print a randomly generated puzzle.
- 3. *libsudoku* does the building, editing, printing, deleting, and checking of sudoku puzzles.
- 4. *solver* takes a sudoku puzzle as input, parses it into a `sudoku_t` structure, and solves it using edits, gets, and checks.
+ 2. *random* which initiates a random number generator and allows us to get random numbers.
+ 3. *creator* uses a `sudoku_t` structure to build, populate, and print a randomly generated puzzle.
+ 4. *libsudoku* does the building, editing, printing, deleting, and checking of sudoku puzzles.
+ 5. *solver* takes a sudoku puzzle as input, parses it into a `sudoku_t` structure, and solves it using edits, gets, and checks.
 
 ### Major Data Structures
 
