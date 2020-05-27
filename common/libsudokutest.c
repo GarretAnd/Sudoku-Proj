@@ -101,6 +101,7 @@ int main()
 	}
 
 	fprintf(stdout, "\nDeleting sudoku\n");
+	sudoku_delete(sudoku);
 
 	return 0;
 }
