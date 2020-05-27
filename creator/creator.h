@@ -35,7 +35,7 @@ void gen_init(void);
 *
 * Makes the sudoku_t type
 * Goes through and puts the values 1-9 into the board at random slots
-
+*
 * Returns:
 *   sudoku_t * containing game board */
 sudoku_t *game_init(void);

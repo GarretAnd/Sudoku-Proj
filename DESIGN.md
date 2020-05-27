@@ -131,7 +131,7 @@ In addition, the following tests will be performed:
 1. Provide a variety of incorrect command-line arguments to ensure proper parsing
 2. Pass invalid puzzles to solver to ensure it imports puzzles properly
 
-*Fuzz testing*. Fuzz testing will be performed in a separate .c file, `fuzzsudoku.c`. It will do the following:
+*Fuzz testing*. Fuzz testing will be performed in the `testing.sh` file. It will do the following:
 
 1. Generate a variety (100) of random puzzles by calling `./sudoku create`
 2. Attempt to solve these puzzles by calling `./sudoku solve`
