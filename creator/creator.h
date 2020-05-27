@@ -3,6 +3,7 @@
  * Purpose: CS50 Final project
  * Header file for creator.c
  */
+
 #ifndef __CREATOR_H
 #define __CREATOR_H
 
@@ -15,20 +16,6 @@
 #include "libsudoku.h"  // Includes Needed Libraries
 
 /*******************functions**********************/
-
-/******************rand_num********************
-* Creates random integer of 0-9
-*
-* Returns:
-*   int with random value */
-int rand_num (void); // Gets a random number 1 through 10
-
-/******************gen_init********************
-* Initializes random number generator based off a seed of the time
-*
-* Returns:
-*   void */
-void gen_init(void);
 
 /******************game_init********************
 * Creates a Sudoku game with 9 random blocks filled in
@@ -53,7 +40,7 @@ sudoku_t *game_init(void);
 *  void */
 void make_unique(sudoku_t *game);
 
-/******************make_unique********************
+/******************creator********************
 * Creates a Sudoku game with a unique solution
 *
 * Makes a sudoku game board

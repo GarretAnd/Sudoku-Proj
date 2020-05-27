@@ -17,12 +17,6 @@ echo
 echo Testing functions of libsudoku:
 ./common/libsudokutest
 echo
-echo Testing functions of creator:
-#./creator/creatortest
-echo
-echo Testing functions of solver:
-#./solver/solvertest
-echo
 echo Testing sudoku create, saving into file 'testfile':
 ./sudoku create > testfile
 echo
