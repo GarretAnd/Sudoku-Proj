@@ -59,7 +59,7 @@ sudoku_t *sudoku_copy(sudoku_t *sudoku);
  *      true if all elements in two sudokus match and sudokus aren't null
  *      false otherwise
  */
-bool sudoku_equal(sudoku_t *sudoku1, sudoku_t *sudoku2)
+bool sudoku_equal(sudoku_t *sudoku1, sudoku_t *sudoku2);
 
 /******************sudoku_delete*****************
  * Frees the memory occupied by the sudoku
