@@ -45,6 +45,12 @@ int sudoku_get(sudoku_t *sudoku, int i, int j);
  */
 void sudoku_print(sudoku_t *sudoku);
 
+/******************sudoku_load******************
+ * Loads a sudoku struct representation of given file
+ * Returns said sudoku struct
+ */
+sudoku_t *sudoku_load(File *fp);
+
 /******************sudoku_copy*******************
  * Provides a copy of the given sudoku
  * Returns:
