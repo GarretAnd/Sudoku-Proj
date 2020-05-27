@@ -66,7 +66,7 @@ void sudoku_print(sudoku_t *sudoku)
 	}
 }
 
-sudoku_t *sudoku_load(File *fp){
+sudoku_t *sudoku_load(FILE *fp){
 	if (fp == NULL) return NULL;
 	sudoku_t *sudoku = sudoku_new();
 	if (sudoku == NULL) return NULL;

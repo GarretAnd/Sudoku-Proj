@@ -5,6 +5,7 @@ static void get_unsolved_element(sudoku_t *sudoku, int *row, int *col);
 static bool solve_puzzle_backwards(sudoku_t *sudoku);
 
 bool solve_puzzle(sudoku_t *sudoku){
+	printf("HERE\n");
 	int row = -1;
 	int col = -1;
 	get_unsolved_element(sudoku, &row, &col);

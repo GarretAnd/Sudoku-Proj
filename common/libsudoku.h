@@ -49,7 +49,7 @@ void sudoku_print(sudoku_t *sudoku);
  * Loads a sudoku struct representation of given file
  * Returns said sudoku struct
  */
-sudoku_t *sudoku_load(File *fp);
+sudoku_t *sudoku_load(FILE *fp);
 
 /******************sudoku_copy*******************
  * Provides a copy of the given sudoku
