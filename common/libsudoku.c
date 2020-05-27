@@ -16,7 +16,7 @@ typedef struct sudoku{
 sudoku_t *sudoku_new()
 {
 	sudoku_t *sudoku = malloc(sizeof(sudoku_t));
-	
+
 	// check if successful
 	if (sudoku == NULL){
 		fprintf(stderr, "Error: Could not allocate memory for sudoku\n");
@@ -35,7 +35,7 @@ sudoku_t *sudoku_new()
 
 void sudoku_edit(sudoku_t *sudoku, int i, int j, int value)
 {
-	if (sudoku == NULL || i < 0 || j < 0 || value < 1 || i > 8 || j > 8 || value > 9){
+	if (sudoku == NULL || i < 0 || j < 0 || value < 0 || i > 8 || j > 8 || value > 9){
 		fprintf(stderr, "Error: could not edit sudoku\n");
 		return;
 	}
@@ -89,7 +89,7 @@ sudoku_t *sudoku_copy(sudoku_t *sudoku){
 		fprintf(stderr, "Error: could not access sudoku\n");
 		return NULL;
 	}
-	
+
 	sudoku_t *copy = sudoku_new();
 	if (copy == NULL){ // check if memory was allocated
 		fprintf(stderr, "Error: could not allocate memory for copy\n");
@@ -128,17 +128,17 @@ bool sudoku_rowcheck(sudoku_t *sudoku, int i)
 		fprintf(stderr, "Error: could not check row\n");
 		return false;
 	}
-	
+
 	// create array to store what values have been seen
 	int array[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	for (int j = 0; j < SIZE; j++){
 		int slot = sudoku->grid[i][j] - 1;
-		
+
 		if (slot < 0){ // ignore 0's in the grid
 			continue;
 		}
-		
+
 		if (array[slot] == 1){ // if this number has been seen before, return false
 			return false;
 		} else { // else, mark that the number has been seen
@@ -154,17 +154,17 @@ bool sudoku_columncheck(sudoku_t *sudoku, int j)
 		fprintf(stderr, "Error: could not check column\n");
 		return false;
 	}
-	
+
 	// create array to store what values have been seen
 	int array[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	for (int i = 0; i < SIZE; i++){
 		int slot = sudoku->grid[i][j] - 1;
-		
+
 		if (slot < 0){ // ignore 0's in the grid
 			continue;
 		}
-		
+
 		if (array[slot] == 1){ // if this number has been seen before, return false
 			return false;
 		} else { // else, mark that the number has been seen
@@ -180,7 +180,7 @@ bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j)
 		fprintf(stderr, "Error: could not check box\n");
 		return false;
 	}
-	
+
 	// determine which box we are in
 	int box_i;
 	int box_j;
@@ -199,7 +199,7 @@ bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j)
 	} else {
 		box_j = 6;
 	}
-	
+
 	// check for duplicate numbers in the box
 	int array[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 	for (int ci = box_i; ci < box_i + 3; ci++){
@@ -208,7 +208,7 @@ bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j)
 			if (slot < 0){ // ignore 0's in the grid
 				continue;
 			}
-		
+
 			if (array[slot] == 1){ // if this number has been seen before, return false
 				return false;
 			} else { // else, mark that the number has been seen
