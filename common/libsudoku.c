@@ -66,6 +66,16 @@ void sudoku_print(sudoku_t *sudoku)
 	}
 }
 
+sudoku_t *sudoku_copy(sudoku_t *sudoku){
+	sudoku_t *copy = sudoku_new();
+	for(int i = 0; i < 9; i++){
+		for(int j = 0; j < 9; j++){
+			copy->grid[i][j] = sudoku->grid[i][j];
+		}
+	}
+	return copy;
+}
+
 void sudoku_delete(sudoku_t *sudoku)
 {
 	if (sudoku != NULL){

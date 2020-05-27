@@ -86,3 +86,6 @@ bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j);
  * 	true if no duplicate numbers
  */
 bool sudoku_isvalid(sudoku_t *sudoku, int i, int j);
+
+
+sudoku_t *sudoku_copy(sudoku_t *sudoku);
