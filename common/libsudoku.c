@@ -160,3 +160,17 @@ bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j)
 	}
 	return true;
 }
+
+bool sudoku_isvalid(sudoku_t *sudoku, int i, int j)
+{
+	// check row, column, and box of i,j
+	// each function checks sudoku, i, and j internally
+	if (sudoku_rowcheck(sudoku, i)){
+		if (sudoku_columncheck(sudoku, j)){
+			if (sudoku_boxcheck(sudoku, i, j)){
+				return true;
+			}
+		}
+	}
+	return false;
+}

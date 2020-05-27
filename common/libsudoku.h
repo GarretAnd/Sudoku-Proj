@@ -69,3 +69,12 @@ bool sudoku_columncheck(sudoku_t *sudoku, int j);
  * 	true if no duplicate numbers in the box
  */
 bool sudoku_boxcheck(sudoku_t *sudoku, int i, int j);
+
+/******************sudoku_isvalid****************
+ * Checks if the row, column, and box at the current i,j is valid
+ * Returns:
+ * 	false is sudoku is NULL, or i,j<0, or i,j>8
+ * 	false if there is a duplicate number in the row, column, or box
+ * 	true if no duplicate numbers
+ */
+bool sudoku_isvalid(sudoku_t *sudoku, int i, int j);

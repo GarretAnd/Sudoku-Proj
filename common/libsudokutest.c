@@ -46,6 +46,11 @@ int main()
 	} else {
 		fprintf(stdout, "Failed box check\n");
 	}
+	if (sudoku_isvalid(sudoku, 0, 0)){
+		fprintf(stdout, "Passed isvalid check\n");
+	} else {
+		fprintf(stdout, "Failed isvalid check\n");
+	}
 
 	fprintf(stdout, "Creating invalid row/column/box:\n");
 	sudoku_edit(sudoku, 6, 6, 1);
@@ -74,6 +79,11 @@ int main()
 		fprintf(stdout, "Passed box check\n");
 	} else {
 		fprintf(stdout, "Failed box check\n");
+	}
+	if (sudoku_isvalid(sudoku, 6, 7)){
+		fprintf(stdout, "Passed isvalid check\n");
+	} else {
+		fprintf(stdout, "Failed isvalid check\n");
 	}
 
 	fprintf(stdout, "Deleting sudoku\n");
