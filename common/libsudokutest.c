@@ -99,6 +99,8 @@ int main()
 	} else {
 		fprintf(stdout, "The sudoku does not equal its copy\n");
 	}
+	
+	
 
 	fprintf(stdout, "\nDeleting sudoku\n");
 	sudoku_delete(sudoku);

@@ -3,15 +3,24 @@
 
 ### common
 
-The common directory stores `libsudoku`, which contains a variety of functions that are shared by the sudoku creator and solver.
+The common directory stores `libsudoku`, which contains a variety of functions that are shared by the sudoku creator and solver, and `random`, which houses random-oriented functions.
 
 `libsudoku` can perform the following tasks:
 
 1. Create an empty sudoku puzzle initialized full of zeroes (`sudoku_new`)
 2. Edit the value at an i,j coordinate of the puzzle (`sudoku_edit`)
-3. Print a sudoku to `stdout` (`sudoku_print`)
-4. Delete a sudoku structure (`sudoku_delete`)
-5. Check if a row, column, and box is valid (`sudoku_isvalid`)
+3. Get the element at an i,j coordinate (`sudoku_get`)
+4. Copy a puzzle (`sudoku_copy`)
+5. Check if two puzzles are identical (`sudoku_equal`)
+6. Load a puzzle from `stdin` to a sudoku structure (`sudoku_load`)
+7. Print a sudoku to `stdout` (`sudoku_print`)
+8. Delete a sudoku structure (`sudoku_delete`)
+9. Check if a row, column, and box is valid (`sudoku_isvalid`)
+
+`random` can perform the following tasks:
+
+1. Initialize the random seed (`gen_init`)
+2. Return a random number (`rand_num`)
 
 ### Usage
 

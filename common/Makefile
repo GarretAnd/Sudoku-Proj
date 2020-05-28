@@ -34,3 +34,4 @@ test: $(PROG)
 clean:
 	rm -f *~ *.o *.dSYM
 	rm -f $(PROG)
+	rm -f testfile
