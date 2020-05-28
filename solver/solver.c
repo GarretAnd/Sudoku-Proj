@@ -60,7 +60,7 @@ static bool solve_puzzle_backwards(sudoku_t *sudoku){
 }
 
 static void get_unsolved_element(sudoku_t *sudoku, int *row, int *col){
-        for(int i = 0; i < 9; i++){
+	for(int i = 0; i < 9; i++){
                 for(int j = 0; j < 9; j++){
                         if(sudoku_get(sudoku, i, j) == 0){
                                 *row = i;
@@ -68,6 +68,6 @@ static void get_unsolved_element(sudoku_t *sudoku, int *row, int *col){
                                 break;
                         }
                 }
-                if(*row == -1 && *col == -1)break;
+                if(*row != -1 && *col != -1)break;
         }
 }

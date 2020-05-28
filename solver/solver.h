@@ -16,6 +16,10 @@ bool solve_puzzle(sudoku_t *sudoku);
  */
 bool unique_solution(sudoku_t *sudoku);
 
+/*
+ * finds a solution for given sudoku but gives random preference to numbers chose if there is more than one solution available
+ * returns true if solution was found, false otherwise
+ */
 bool solve_puzzle_random(sudoku_t *sudoku);
 
 #endif // __SOLVER_H
