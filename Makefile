@@ -14,9 +14,8 @@ $(PROG): $(PROG).c ./common/libsudoku.o ./common/random.o  ./creator/creator.o .
 #phony targets
 .PHONY: clean test
 
-test: $(PROG) ./common/libsudokutest
+test: $(PROG)
 	./testing.sh
-	./common/libsudokutest
 
 memtest: $(PROG)
 	$(MEMTEST) ./$<
