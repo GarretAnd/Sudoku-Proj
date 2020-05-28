@@ -7,23 +7,23 @@
 # Modified by Quinn Spraut, May 2020
 
 PROG = libsudokutest
-OBJS = libsudokutest.o libsudoku.o
+OBJS =
 
 # uncomment the following to turn on verbose memory logging
 # TESTING=-DMEMTEST
+UNITTEST=-DTESTMODE
 
 CFLAGS = -Wall -pedantic -std=c11 -ggdb $(TESTING)
 CC = gcc
 MAKE = make
 
-all: libsudoku.o libsudokutest random.o
-
-$(PROG): $(OBJS)
-	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
+all: libsudoku.o random.o
 
 libsudoku.o: libsudoku.h libsudoku.c
-libsudokutest.o: libsudoku.h libsudokutest.c
 random.o: random.c random.h
+
+$(PROG): $(OBJS) libsudoku.c
+	$(CC) $(CFLAGS) $(UNITTEST) $^ $(LIBS) -o $@
 
 
 .PHONY: test clean
@@ -34,4 +34,3 @@ test: $(PROG)
 clean:
 	rm -f *~ *.o *.dSYM
 	rm -f $(PROG)
-	rm -f testfile
