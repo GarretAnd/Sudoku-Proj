@@ -13,6 +13,7 @@
 `./sudoku create` or `./sudoku solve`
 
 ## Sudoku Pseudocode
+See [DESIGN](DESIGN.md) for pseudocode
 
 ## Breakdown of Functions
 
@@ -28,8 +29,6 @@ Returns an incomplete sudoku puzzle with a unique solution
 
 `solve_puzzle`
 Fills in a solution to given sudoku puzzle with prefence given to low values
-
-See [DESIGN](DESIGN.md) for pseudocode
 
 ## Major Data Structures
 
