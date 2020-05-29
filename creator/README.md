@@ -2,27 +2,46 @@
 ## CS50 Spring 2020
 ### By Garret Andreine
 
-### creator
+### Creator
 
-The creator directory stores `creator.c`, which is responsible for building sudoku puzzles.
+The creator directory stores `creator.c`, which houses functions that are responsible for creating sudoku puzzles with unique solutions.
 
 `creator` can perform the following tasks:
 
-1. Generate random numbers, which can be used to populate the puzzle
-2. Initalize an empty sudoku puzzle
-3. Add random numbers in random spots of a sudoku puzzle
-4. Edit a puzzle to ensure it has one unique solution
-5. Create a puzzle from scratch (combining the above four)
+1. Initialize a random number generator, which can be used to populate the puzzle.
+2. Initialize an empty sudoku puzzle.
+3. Add random numbers in random spots of a sudoku puzzle.
+4. Edit a puzzle to ensure it has one unique solution.
+5. Create a puzzle from scratch (combining the above four).
 
 ### Usage
 
-`creator.c` is meant to be called by outside modules, and thus does not have an exectuable.
+`creator.c` is meant to be called by outside modules, and thus does not have an executable. However, it does have a unit test that can be called with the command `make test` while in the `creator` directory.
 
 `creator` has the following functionality:
 
-1. *game_init*, which creates a new sudoku puzzle with 9 spots randomly filled in
-2. *make_unique*, which takes a solved game and removes elements while ensuring there is still one unique solution
-3. *creator*, which combines the above two functions to create a new puzzle with one unique solution
+```c
+/******************game_init********************
+* Creates a Sudoku game with 9 random blocks filled in
+*
+* Returns:
+*   sudoku_t * containing game board*/
+sudoku_t *game_init(void);
+
+/******************make_unique********************
+* Creates a Sudoku game with 9 random blocks filled in
+*
+* Returns:
+*  void */
+void make_unique(sudoku_t *game);
+
+/******************creator********************
+* Creates a Sudoku game with a unique solution
+*
+* Returns:
+*  sudoku_t * containing game board with a unique solution */
+sudoku_t *creator(void);
+```
 
 ### Assumptions
 
