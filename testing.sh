@@ -5,6 +5,11 @@
 #Purpose: CS50 Final Project
 # Tests sudoku.c
 
+num=50
+if [ $# -eq 1 ]; then
+	num=$1
+fi
+
 echo Testing too few arguments:
 ./sudoku
 if [ $? -ne 1 ]
@@ -46,7 +51,8 @@ then
 fi
 echo
 echo Fuzz testing:
-for i in {1..50}
+i=1
+while [ $i -le $num ]
 do
 	echo Generated Puzzle 1:
 	./sudoku create > testfile1
@@ -79,6 +85,7 @@ do
         	echo "solving puzzle 2 failed"
         	exit 1
 	fi	
+	i=$((i + 1))
 done
 echo "all tests passed sucessfully!"
 exit 0

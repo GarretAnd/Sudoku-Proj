@@ -38,7 +38,9 @@ The following implementation tests are performed:
 
 # Fuzz Testing
 
-The following process is repeated 50 times in order to thoroughly fuzz test the program:
+The following process is by default repeated 50 times in order to thoroughly fuzz test the program.
+
+A number in the command line will cause that many iterations of the following:
 
 1. Generate a puzzle using `./sudoku create`, storing it in a test file
 2. Generate a second puzzle, storing it in a separate file
