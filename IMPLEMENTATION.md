@@ -24,7 +24,7 @@
 	2. If `solve`, load the puzzle passed through `stdin` into a `sudoku_t` structure and call `solve_puzzle`
 
 `creator`
-
+Returns an incomplete sudoku puzzle with a unique solution
 
 `solve_puzzle`
 Fills in a solution to given sudoku puzzle with prefence given to low values
