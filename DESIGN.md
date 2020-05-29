@@ -1,3 +1,7 @@
+# CS50 Final Project
+## Group -> cs50maybecsmajor
+## CS50 Spring 2020
+
 There will be two major visible final products to the user in the ***Sudoku Project*** from `Sudoku.c`
 
 1. Creating (called `Creator`) a random Sudoku Puzzle with one unique solution upon calling the script.

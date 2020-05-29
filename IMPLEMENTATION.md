@@ -1,3 +1,7 @@
+# CS50 Final Project
+## Group -> cs50maybecsmajor
+## CS50 Spring 2020
+
 # cs50maybecsmajor, CS50 Final Project Spring 2020
 
 ## Sudoku
@@ -58,7 +62,7 @@ If `sudoku.c` fails, it will return with a nonzero exit code.
 3. Unable to create sudoku puzzle (out of memory)
 4. Unable to solve given sudoku puzzle
 
-Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved. 
+Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved.
 
 ## Memory Leaks
 

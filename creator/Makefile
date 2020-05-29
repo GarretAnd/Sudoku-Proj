@@ -9,17 +9,17 @@
 #variables
 
 CC = gcc
-CFLAGS = -Wall -pedantic -std=c11 -ggdb -I../common
+CFLAGS = -Wall -pedantic -std=c11 -ggdb -I../common -I../solver
 TESTFLAGS = -DTESTMODE
-PROG = solver
+PROG = creator
 
 #rules
-all: solver.o ${PROG}test
+all: creator.o ${PROG}test
 
-solver.o: solver.c
+creator.o: creator.c
 	${CC} ${CFLAGS} $^ -c
 
-${PROG}test: ${PROG}.c ../common/libsudoku.o ../common/random.o
+${PROG}test: ${PROG}.c ../common/libsudoku.o ../common/random.o ../solver/solver.o
 	${CC} ${CFLAGS} ${TESTFLAGS} $^ -o ${PROG}test
 
 #phony targets

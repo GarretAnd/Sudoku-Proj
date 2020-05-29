@@ -1,5 +1,6 @@
 # CS50 Final Project
 ## CS50 Spring 2020
+### By Garret Andreine
 
 ### creator
 
@@ -21,7 +22,7 @@ The creator directory stores `creator.c`, which is responsible for building sudo
 
 1. *game_init*, which creates a new sudoku puzzle with 9 spots randomly filled in
 2. *make_unique*, which takes a solved game and removes elements while ensuring there is still one unique solution
-3. *creator*, which combines the above two functions to create a new puzzle with one unique solution 
+3. *creator*, which combines the above two functions to create a new puzzle with one unique solution
 
 ### Assumptions
 

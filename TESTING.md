@@ -1,3 +1,7 @@
+# CS50 Final Project
+## Group -> cs50maybecsmajor
+## CS50 Spring 2020
+
 #TESTING.md
 
 `testing.sh` can be run by calling `make test`
