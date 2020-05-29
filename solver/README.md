@@ -20,4 +20,4 @@ No assumptions were made beyond those that were clear from the spec.
 
 ### Compilation
 
-To compile, call `make`. To clean, call `make clean`.
+To compile, call `make`. To clean, call `make clean`. To test call make test
