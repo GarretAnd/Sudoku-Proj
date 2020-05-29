@@ -51,10 +51,12 @@ Houses a 9x9 grid, initialized to all zeroes. Sudoku has the following functiona
 
 If `sudoku.c` fails, it will return with a nonzero exit code.
 
-`sudoku.c` will exit for the following reasons:
+`sudoku.c` will exit for the following reasons with the following codes:
 
 1. Invalid number of command line arguments
 2. Invalid specification of mode (`create` or `solve`)
+3. Unable to create sudoku puzzle (out of memory)
+4. Unable to solve given sudoku puzzle
 
 Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved. 
 
