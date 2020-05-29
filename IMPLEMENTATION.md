@@ -27,13 +27,9 @@
 
 
 `solve_puzzle`
+Fills in a solution to given sudoku puzzle with prefence given to low values
 
-1. Find an unsolved element of the puzzle using `get_unsolved_element`
-2. Attempt to place a number in this slot (starting at 1, increasing upwards)
-	3. Check if the number is valid. If not, increment the number by 1
-	4. If it is, valid, recursively call `solve_puzzle` to see if the puzzle is solved
-	5. Return false if the puzzle cannot be solved.
-6. If the puzzle is solved, return true.
+See [DESIGN](DESIGN.md) for pseudocode
 
 ## Major Data Structures
 
@@ -62,11 +58,6 @@ If `sudoku.c` fails, it will return with a nonzero exit code.
 3. Unable to create sudoku puzzle (out of memory)
 4. Unable to solve given sudoku puzzle
 
-<<<<<<< HEAD
-Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved.
-
-=======
->>>>>>> b6a4e60355fb74042b79930b927f8b35c5155721
 ## Memory Leaks
 
 Using `myvalgrind`, all memory leaks have been plugged.
