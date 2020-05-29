@@ -4,6 +4,10 @@
  * Header file for random.c
  */
 
+ #include <time.h>
+ #include <stdlib.h>
+ // Includes needed libraries
+
 #ifndef __RAND_H
 #define __RAND_H
 

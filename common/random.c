@@ -5,8 +5,6 @@
  */
 
 #include "random.h"
-#include <time.h>
-#include <stdlib.h>
 
 void gen_init(void){
   time_t t;

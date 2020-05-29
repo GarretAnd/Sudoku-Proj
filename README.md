@@ -18,6 +18,13 @@
 
 `./sudoku solve` will read a sudoku puzzle from `stdin`, and print the solved version (if it exists) to `stdout`.
 
+Exit Codes:
+- 0: Exited normally, no problems encountered
+- 1: Invalid number of command line arguments
+- 2: Invalid specification of mode (create or solve)
+- 3: Unable to create sudoku puzzle (out of memory)
+- 4: Unable to solve given sudoku puzzle
+
 ### Assumptions
 
 No assumptions were made beyond those that were clear from the spec.

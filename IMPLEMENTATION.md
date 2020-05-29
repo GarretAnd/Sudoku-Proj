@@ -1,3 +1,7 @@
+# CS50 Final Project
+## Group -> cs50maybecsmajor
+## CS50 Spring 2020
+
 # cs50maybecsmajor, CS50 Final Project Spring 2020
 
 ## Sudoku
@@ -9,6 +13,7 @@
 `./sudoku create` or `./sudoku solve`
 
 ## Sudoku Pseudocode
+See [DESIGN](DESIGN.md) for pseudocode
 
 ## Breakdown of Functions
 
@@ -20,16 +25,10 @@
 	2. If `solve`, load the puzzle passed through `stdin` into a `sudoku_t` structure and call `solve_puzzle`
 
 `creator`
-
+Returns an incomplete sudoku puzzle with a unique solution
 
 `solve_puzzle`
-
-1. Find an unsolved element of the puzzle using `get_unsolved_element`
-2. Attempt to place a number in this slot (starting at 1, increasing upwards)
-	3. Check if the number is valid. If not, increment the number by 1
-	4. If it is, valid, recursively call `solve_puzzle` to see if the puzzle is solved
-	5. Return false if the puzzle cannot be solved.
-6. If the puzzle is solved, return true.
+Fills in a solution to given sudoku puzzle with prefence given to low values
 
 ## Major Data Structures
 
@@ -51,12 +50,12 @@ Houses a 9x9 grid, initialized to all zeroes. Sudoku has the following functiona
 
 If `sudoku.c` fails, it will return with a nonzero exit code.
 
-`sudoku.c` will exit for the following reasons:
+`sudoku.c` will exit for the following reasons with the following codes:
 
 1. Invalid number of command line arguments
 2. Invalid specification of mode (`create` or `solve`)
-
-Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved. 
+3. Unable to create sudoku puzzle (out of memory)
+4. Unable to solve given sudoku puzzle
 
 ## Memory Leaks
 

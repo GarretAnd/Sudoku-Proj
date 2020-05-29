@@ -29,7 +29,7 @@ int main(const int argc, char *argv[]){
 		sudoku_delete(sudoku);
 	} else if (strcmp(argv[1], "solve") == 0){ // if solve, solve a puzzle from stdin
 		sudoku_t *sudoku = sudoku_load(stdin);
-		if (!solve_puzzle(sudoku)){
+		if (sudoku == NULL || !solve_puzzle(sudoku)){
 			fprintf(stderr, "Error: given sudoku puzzle could not be solved\n");
                         return 4;
 		}
