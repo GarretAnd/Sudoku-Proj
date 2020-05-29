@@ -58,8 +58,6 @@ If `sudoku.c` fails, it will return with a nonzero exit code.
 3. Unable to create sudoku puzzle (out of memory)
 4. Unable to solve given sudoku puzzle
 
-Puzzles that are not able to be solved are handled internally, and will not output an error, but simply state that the puzzle cannot be solved. 
-
 ## Memory Leaks
 
 Using `myvalgrind`, all memory leaks have been plugged.
