@@ -88,11 +88,19 @@ The `Creator` will run as follows:
 The `Solver` will run as follows:
 
 1. Find an empty block on the game board.
+<<<<<<< HEAD
   2. If it can't find an empty block, the board is already finished.
   3. If it can find an empty block, assign a valid value to said block.
     4. Recurse to next nonempty block and repeat steps 1-4.
     5. If recursion is not able to find a valid solution assign a different valid value to block.
       6. If all valid values are used up and a solution was not found.
+=======
+  2. If it can't find an empty block, the board is already finished.
+  3. If it can find an empty block, Assign a valid value to said block.
+    4. Recurse to next nonempty block and repeat steps 1-4.
+    5. If recursion is not able to find a valid solution assign a different valid value to block.
+      6. If all valid values are used up and a solution was not found.
+>>>>>>> b6a4e60355fb74042b79930b927f8b35c5155721
 
 ### Dataflow through modules
 
