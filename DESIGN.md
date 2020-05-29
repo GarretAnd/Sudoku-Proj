@@ -1,3 +1,7 @@
+# CS50 Final Project
+## Group -> cs50maybecsmajor
+## CS50 Spring 2020
+
 There will be two major visible final products to the user in the ***Sudoku Project*** from `Sudoku.c`
 
 1. Creating (called `Creator`) a random Sudoku Puzzle with one unique solution upon calling the script.
@@ -82,9 +86,10 @@ The `Creator` will run as follows:
 16. Print this finished Puzzle to stdout or whatever file it is directed to.
 
 The `Solver` will run as follows:
+
 1. Find an empty block on the game board.
   2. If it can't find an empty block, the board is already finished.
-  3. If it can find an empty block, Assign a valid value to said block.
+  3. If it can find an empty block, assign a valid value to said block.
     4. Recurse to next nonempty block and repeat steps 1-4.
     5. If recursion is not able to find a valid solution assign a different valid value to block.
       6. If all valid values are used up and a solution was not found.
@@ -92,7 +97,7 @@ The `Solver` will run as follows:
 ### Dataflow through modules
 
  1. *main* parses parameters and passes them to the creator.
- 2. *random* which initiates a random number generator and allows us to get random numbers.
+ 2. *random* which initiates a random number generator and allows access to random numbers.
  3. *creator* uses a `sudoku_t` structure to build, populate, and print a randomly generated puzzle.
  4. *libsudoku* does the building, editing, printing, deleting, and checking of sudoku puzzles.
  5. *solver* takes a sudoku puzzle as input, parses it into a `sudoku_t` structure, and solves it using edits, gets, and checks.
@@ -101,7 +106,7 @@ The `Solver` will run as follows:
 
 The common directory provides the following data structure:
 
- 1. *sudoku* which houses a 9x9 two-dimensional integer array
+ 1. *sudoku* which houses a 9x9 two-dimensional integer array.
 
 ### Testing Plan
 
@@ -111,21 +116,21 @@ The common directory provides the following data structure:
 
 For the creator, the following must be observed:
 
-1. A random puzzle is generated with each call of `./sudoku create`
-2. The puzzle is, in fact, solvable
-3. The puzzle only has one solution
+1. A random puzzle is generated with each call of `./sudoku create`.
+2. The puzzle is, in fact, solvable.
+3. The puzzle only has one solution.
 
 For the solver, the following must be observed:
 
-1. The proposed solution outputted by `./sudoku solve` is correct
+1. The proposed solution outputted by `./sudoku solve` is correct.
 
 In addition, the following tests will be performed:
 
-1. Provide a variety of incorrect command-line arguments to ensure proper parsing
-2. Pass invalid puzzles to solver to ensure it imports puzzles properly
+1. Provide a variety of incorrect command-line arguments to ensure proper parsing.
+2. Pass invalid puzzles to solver to ensure it imports puzzles properly.
 
 *Fuzz testing*. Fuzz testing will be performed in the `testing.sh` file. It will do the following:
 
-1. Generate a variety (100) of random puzzles by calling `./sudoku create`
-2. Attempt to solve these puzzles by calling `./sudoku solve`
-3. If any puzzles are solved incorrectly, return an error
+1. Generate a variety (100) of random puzzles by calling `./sudoku create`.
+2. Attempt to solve these puzzles by calling `./sudoku solve`.
+3. If any puzzles are solved incorrectly, return an error.

@@ -6,18 +6,29 @@
 # updated by Temi Prioleau, January 2020
 # Modified by Garret Andreine, May 2020
 
+#variables
+
 CC = gcc
 CFLAGS = -Wall -pedantic -std=c11 -ggdb -I../common -I../solver
+TESTFLAGS = -DTESTMODE
+PROG = creator
 
-# rules
+#rules
+all: creator.o ${PROG}test
 
-all: creator.o
-
-solver.o: creator.c
+creator.o: creator.c
 	${CC} ${CFLAGS} $^ -c
 
-# phony targets
-.PHONY: clean
+${PROG}test: ${PROG}.c ../common/libsudoku.o ../common/random.o ../solver/solver.o
+	${CC} ${CFLAGS} ${TESTFLAGS} $^ -o ${PROG}test
+
+#phony targets
+.PHONY: clean test
+
+test: ${PROG}test
+	./${PROG}test
 
 clean:
 	rm -f *.o
+	rm -f core
+	rm -f ${PROG}test

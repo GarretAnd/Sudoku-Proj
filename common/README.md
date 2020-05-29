@@ -1,5 +1,6 @@
 # CS50 Final Project
 ## CS50 Spring 2020
+### By Quinn Spraut
 
 ### common
 
