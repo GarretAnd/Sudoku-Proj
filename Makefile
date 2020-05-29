@@ -16,6 +16,9 @@ $(PROG): $(PROG).c ./common/libsudoku.o ./common/random.o  ./creator/creator.o .
 
 test: $(PROG)
 	./testing.sh
+	make -C solver test
+	make -C common test
+	make -C creator test
 
 memtest: $(PROG)
 	$(MEMTEST) ./$<
@@ -27,3 +30,6 @@ clean:
 	rm -rf testfile
 	rm -rf testfile1
 	rm -rf testfile2
+	make -C solver clean
+	make -C common clean
+	make -C creator clean
