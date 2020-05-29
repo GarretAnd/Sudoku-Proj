@@ -10,7 +10,7 @@ The solver directory stores `solver.c`, which is responsible for solving sudoku 
 1. Solve a puzzle
 2. Solve a puzzle randomly
 3. State if a puzzle has one unique solution or not
-  - to test for unique solutions the solver solves the puzzle with preference given to low values and with preference given to high values then checks whether or not the two solutions are different.
+    - to test for unique solutions the solver solves the puzzle with preference given to low values and with preference given to high values then checks whether or not the two solutions are different.
 
 ### Usage
 
