@@ -33,4 +33,4 @@ A number in the command line will cause that many iterations of the following:
 4. Solve the first puzzle and print it
 5. Solve the second puzzle and solve it
 
-A sample run of make test in the main directory can be seen in [testing.out](testing.out)
+An example run of make test in the main directory can be seen in [testing.out](testing.out)
