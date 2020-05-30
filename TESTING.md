@@ -31,7 +31,7 @@ The following process is by default repeated 50 times in order to thoroughly fuz
 A number in the command line will cause that many iterations of the following:
 
 1. Generate a puzzle using `./sudoku create`, storing it in a test file
-2. Generate a second puzzle, storing it in a separate file
+2. Wait one second then generate a second puzzle, storing it in a separate file (c uses system time to seed random generator)
 3. Determine if differences exist between the two puzzles
 4. Solve the first puzzle and print it
 5. Solve the second puzzle and solve it
