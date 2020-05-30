@@ -2,7 +2,7 @@
 ## Group -> cs50maybecsmajor
 ## CS50 Spring 2020
 
-#TESTING.md
+# TESTING.md
 
 `testing.sh` can be run by calling `make test`
 
