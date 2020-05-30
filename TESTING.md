@@ -6,6 +6,11 @@
 
 `testing.sh` can be run by calling `make test`
 
+Additionally, `testing.sh` can be run through ```./testing.sh``` in which you may elect to specify the number of fuzz trials it performs via a command line argument. (note this is optional and it will default to 50 trials if given no argument)
+
+Example call:
+```./testing.sh 100```
+
 This markdown file explains the testing approach taken in `testing.sh`, which runs *unit testing*, *implementation testing*, and *fuzz testing* on the `sudoku.c` module.
 
 ## Unit Testing
