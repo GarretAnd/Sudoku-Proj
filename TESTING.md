@@ -9,24 +9,9 @@
 This markdown file explains the testing approach taken in `testing.sh`, which runs *unit testing*, *implementation testing*, and *fuzz testing* on the `sudoku.c` module.
 
 ## Unit Testing
+each module within the sudoku project has its own unit tests which are triggered by defining the ```TESTMODE``` macro when compiling. Each of these unit tests can be ran by calling make test in the respective module
 
-`testing.sh` calls `libsudokutest.c` within the common module. This testing file does the following:
-
-1. Attempt to generate an empty sudoku grid (testing `sudoku_new`)
-2. Insert 9 valid numbers in the upper left box (testing `sudoku_edit`)
-3. Check a valid row (testing `sudoku_rowcheck`)
-4. Check a valid column (testing `sudoku_columncheck`)
-5. Check a valid box (testing `sudoku_boxcheck`)
-6. Check if all three are valid (testing `sudoku_isvalid`)
-7. Attempt to get a number at a desired position (testing `sudoku_get`)
-8. Insert 9 numbers in an invalid fashion in the lower right box
-9. Check an invalid row (testing `sudoku_rowcheck`)
-10. Check an invalid column (testing `sudoku_columncheck`)
-11. Check an invalid box (testing `sudoku_boxcheck`)
-12. Check if all three are invalid (testing `sudoku_isvalid`)
-13. Attempt to make a copy of the puzzle (testing `sudoku_copy`)
-14. Ensure the copy equals the original (testing `sudoku_equal`)
-15. Attempt to delete the sudoku (testing `sudoku_delete`)
+When calling make test outside any subdirectory the Makefile automatically calls make test in each of the module directories, thus running our unit tests. Additionally, calling make test outside any subdirectory will run testing.sh which runs the following implementation and fuzz tests.
 
 ## Implementation Testing
 
