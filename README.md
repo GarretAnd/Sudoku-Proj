@@ -1,5 +1,5 @@
 # CS50 Final Project
-## cs50maybecsmajor
+## Group Name: cs50maybecsmajor
 ## CS50 Spring 2020
 
 ### sudoku
