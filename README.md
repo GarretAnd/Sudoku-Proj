@@ -32,3 +32,11 @@ No assumptions were made beyond those that were clear from the spec.
 ### Compilation
 
 To compile, call `make`. To test, call `make test`. To clean, call `make clean`.
+
+### Video
+
+Find our video at the following link:
+
+https://drive.google.com/file/d/1ypsuLrnhGk22C7pryYXgVAZx5tiem04h/view?usp=sharing
+
+Note: you must be signed in to your Dartmouth account to view the video
